@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Il Giornalino "La Nostra Voce" — AID Mariano Comense</title>
+<meta name="description" content="Archivio storico del periodico semestrale 'La Nostra Voce' dell'Associazione Intercomunale Diabetici OdV di Mariano Comense.">
+<link rel="icon" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="giornalino">
+
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--secondary)">Rassegna stampa</span>
+    <h1>Il Giornalino "La Nostra Voce"</h1>
+    <p>Il nostro periodico semestrale, registrato presso il Tribunale di Como. Qui trovi l'archivio storico delle edizioni, consultabili e scaricabili da tutti.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Archivio per anno</span>
+    <h2>Sfoglia le edizioni</h2>
+    <div class="grid grid--4 mt-m" id="anni">
+      <!-- generato sotto -->
+    </div>
+    <p class="mt-m"><a class="btn btn--primary" href="https://drive.google.com/drive/folders/1gdTDJ-NUopGFnGvHpBxfUU4pQkbfycB4" target="_blank" rel="noopener">Apri l'archivio completo →</a></p>
+  </div>
+</section>
+
+<script>
+  const anni = [
+    ['2026','1saY9Ue6qU1CT1lHfTvAQTlqK4hnxh3_n','Ultima edizione'],
+    ['2025','1gpVoDF3pFAcRl226bhBhRY1a8zceZU9s',''],
+    ['2024','1JSHIezwxzPD5ECXVJ6m3c8m0U4CTrFQK',''],
+    ['2023','1pWMPGOh9NEJFdNIogfSfH8Wn2AB_h5Jk',''],
+    ['2022','1gNF5VBbe1l6SIDD5WcLuQgicv9ipUekp',''],
+    ['2021','1y3w5_Dk38MRNhggDsYprJ3XhnwadIVP9',''],
+    ['2020','1eKKYcePlcSwt6F-Q5Ei0jR-y6rDqTsba',''],
+    ['2019','1aqwmedh4jsU0QIFufWsQHwOibz82zew4',''],
+    ['2018','1BPGcyLrK-KfID94-Q1Gelb0ZvkQxFQLE',''],
+    ['2017','1qjPFJjwehaWt-Odxw4xprY5rZ5Z7Z_w6',''],
+    ['2011','1WSh2criCcAwHzXkuYNzQmsdQNBUWQybY','Le origini'],
+  ];
+  document.getElementById('anni').innerHTML = anni.map(([a,id,tag]) =>
+    `<a class="card" style="text-decoration:none" href="https://drive.google.com/drive/folders/${id}" target="_blank" rel="noopener">
+       <div class="card-body">
+         ${tag?`<span class="date">${tag}</span>`:'<span class="date">Edizione</span>'}
+         <h3>La Nostra Voce · ${a}</h3>
+         <p style="color:var(--muted-fg)">Apri e scarica il PDF →</p>
+       </div>
+     </a>`).join('');
+</script>
+
+<section class="section section--muted">
+  <div class="container prose">
+    <span class="eyebrow">Vuoi collaborare?</span>
+    <h2>Racconta la tua storia</h2>
+    <p>"La Nostra Voce" vive del contributo dei soci. Se hai un'esperienza, un consiglio o una proposta da condividere, scrivici: la tua voce può aiutare altre persone che convivono con il diabete.</p>
+    <p><a class="btn btn--primary" href="contatti.html">Scrivici →</a></p>
+  </div>
+</section>
+
+<script src="../js/layout.js"></script>
+</body>
+</html>

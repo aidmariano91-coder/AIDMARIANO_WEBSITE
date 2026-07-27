@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Area Soci — AID Mariano Comense</title>
+<meta name="description" content="Area riservata ai soci dell'Associazione Intercomunale Diabetici OdV di Mariano Comense.">
+<link rel="icon" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="area">
+
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--secondary)">Area riservata</span>
+    <h1>Area Soci</h1>
+    <p>Accedi per consultare i verbali riservati, gestire i tuoi dati e rinnovare la tessera associativa.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:460px">
+    <form class="contact" onsubmit="event.preventDefault();alert('Accesso in arrivo: l\'area riservata sarà attivata a breve.');">
+      <h2 style="margin-bottom:6px">Accedi</h2>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button class="btn btn--primary" type="submit">Entra</button>
+      <small style="color:var(--muted-fg)">Non hai le credenziali? <a href="contatti.html">Contatta l'Associazione</a>.</small>
+    </form>
+
+    <div class="notice mt-m">
+      <strong>Area in allestimento.</strong> L'accesso riservato ai soci sarà attivato a breve. Una volta effettuato l'accesso potrai vedere il tuo stato socio (numero tessera, scadenza), scaricare i <strong>verbali assembleari riservati</strong> e — prossimamente — <strong>rinnovare l'iscrizione</strong> online.
+    </div>
+  </div>
+</section>
+
+<!-- Predisposizione tecnica (Fase 2): autenticazione e dati soci via Supabase.
+     Verranno aggiunti qui il client Supabase e la dashboard socio. -->
+<script src="../js/layout.js"></script>
+</body>
+</html>

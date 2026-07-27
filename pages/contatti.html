@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contatti — AID Mariano Comense</title>
+<meta name="description" content="Contatta l'Associazione Intercomunale Diabetici OdV di Mariano Comense.">
+<link rel="icon" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="contatti">
+
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--secondary)">Contatti</span>
+    <h1>Scrivici o vieni a trovarci</h1>
+    <p>Per informazioni, per iscriverti o rinnovare la tessera, o semplicemente per conoscerci: siamo a disposizione.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container info-grid">
+    <div>
+      <span class="eyebrow">Dove siamo</span>
+      <h2>Recapiti</h2>
+      <ul class="info-list mt-m">
+        <li><span class="k">Sede</span><span>c/o Presidio Polispecialistico "Felice Villa", via Isonzo 42/B, 22066 Mariano Comense (CO)</span></li>
+        <li><span class="k">Email</span><span><a href="mailto:aidmariano91@gmail.com">aidmariano91@gmail.com</a></span></li>
+        <li><span class="k">Social</span><span>Facebook · Instagram · WhatsApp</span></li>
+        <li><span class="k">C.F.</span><span>90004110137 · Iscritta al RUNTS</span></li>
+      </ul>
+      <p class="mt-m"><a class="btn btn--red" href="#form">Diventa socio</a></p>
+    </div>
+
+    <div id="form">
+      <span class="eyebrow">Scrivici</span>
+      <h2>Modulo di contatto</h2>
+      <!-- Netlify Forms: funziona automaticamente una volta pubblicato su Netlify -->
+      <form class="contact mt-m" name="contatti" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contatti">
+        <p style="display:none"><label>Non compilare: <input name="bot-field"></label></p>
+        <input type="text" name="nome" placeholder="Nome e cognome" required>
+        <input type="email" name="email" placeholder="La tua email" required>
+        <input type="text" name="oggetto" placeholder="Oggetto">
+        <textarea name="messaggio" rows="5" placeholder="Il tuo messaggio" required></textarea>
+        <button class="btn btn--primary" type="submit">Invia messaggio</button>
+        <small style="color:var(--muted-fg)">Inviando accetti che i tuoi dati siano usati solo per rispondere alla tua richiesta.</small>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script src="../js/layout.js"></script>
+</body>
+</html>
