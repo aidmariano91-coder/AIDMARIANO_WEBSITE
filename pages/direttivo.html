@@ -10,9 +10,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <style>
-  .avatar{width:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(160deg,var(--primary),var(--secondary));color:#fff;
-    font-family:var(--font-head);font-weight:600;font-size:2.4rem;}
+  .avatar{width:100%;aspect-ratio:1/1;display:block;object-fit:cover;object-position:50% 18%;
+    background:linear-gradient(160deg,var(--primary),var(--secondary));}
+  .group-photo{display:block;width:100%;max-width:640px;margin:0 auto;border-radius:var(--radius,12px);
+    box-shadow:0 10px 30px rgba(0,0,0,.12);}
+  .group-caption{text-align:center;color:var(--muted-fg);margin-top:.8rem;font-size:.95rem;}
 </style>
 </head>
 <body data-page="direttivo">
@@ -30,10 +32,10 @@
     <span class="eyebrow">Le cariche</span>
     <h2>Chi guida l'Associazione</h2>
     <div class="people mt-m">
-      <div class="person"><div class="avatar">AC</div><div class="p-body"><span class="role">Presidente</span><b>Antonio Cipriani</b></div></div>
-      <div class="person"><div class="avatar">MP</div><div class="p-body"><span class="role">Vicepresidente</span><b>Marco Pelucchi</b></div></div>
-      <div class="person"><div class="avatar">EB</div><div class="p-body"><span class="role">Segretaria</span><b>Elena Bellotti</b></div></div>
-      <div class="person"><div class="avatar">DV</div><div class="p-body"><span class="role">Tesoriere</span><b>Daniela Viganò</b></div></div>
+      <div class="person"><img class="avatar" src="../assets/direttivo/antonio-cipriani.jpg" alt="Antonio Cipriani, Presidente"><div class="p-body"><span class="role">Presidente</span><b>Antonio Cipriani</b></div></div>
+      <div class="person"><img class="avatar" src="../assets/direttivo/marco-pelucchi.jpg" alt="Marco Pelucchi, Vicepresidente"><div class="p-body"><span class="role">Vicepresidente</span><b>Marco Pelucchi</b></div></div>
+      <div class="person"><img class="avatar" src="../assets/direttivo/elena-bellotti.jpg" alt="Elena Bellotti, Segretaria"><div class="p-body"><span class="role">Segretaria</span><b>Elena Bellotti</b></div></div>
+      <div class="person"><img class="avatar" src="../assets/direttivo/daniela-vigano.jpg" alt="Daniela Viganò, Tesoriere"><div class="p-body"><span class="role">Tesoriere</span><b>Daniela Viganò</b></div></div>
     </div>
 
     <h3 class="mt-m center">Consiglieri</h3>
@@ -43,6 +45,11 @@
       <li>Roberta Vergani</li>
       <li>Salvatore Molteni</li>
     </ul>
+
+    <div class="mt-m">
+      <img class="group-photo" src="../assets/direttivo/direttivo-gruppo.jpg" alt="Foto di gruppo del Consiglio Direttivo 2026–2028">
+      <p class="group-caption">Il Consiglio Direttivo 2026–2028 al completo.</p>
+    </div>
   </div>
 </section>
 
