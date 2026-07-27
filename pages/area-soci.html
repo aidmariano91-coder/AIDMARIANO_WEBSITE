@@ -1,4 +1,27 @@
 <!doctype html>
+<!-- ============================================================
+     AREA SOCI — USER FLOW (v1, anteprima — login DISATTIVATO)
+
+     Flusso previsto per il socio:
+       1. Socio → pagina Area Soci (questa pagina, gate di accesso)
+       2. Login email + password → OGGI DISATTIVATO in attesa di
+          approvazione del Direttivo (campi disabilitati, nessuna
+          chiamata di autenticazione)
+       3. Dashboard socio (oggi visitabile solo come ANTEPRIMA con
+          dati di esempio: area-soci-dashboard.html)
+       4. Dalla dashboard: tessera → dati personali → verbali
+          riservati → rinnovo tessera → esci
+
+     Passi futuri previsti (Fase 2, dopo approvazione del Direttivo):
+       - Autenticazione email/password con Supabase Auth
+         (progetto AIDMariano_Soci; nel client solo la anon key
+         pubblica, mai service_role)
+       - Policy RLS sulla tabella public.soci: "ogni socio vede
+         solo i propri dati" (oggi RLS attiva senza policy = bloccata)
+       - Collegamento soci.user_id → auth.users
+
+     Dettagli completi: docs/area-soci-flow.md
+     ============================================================ -->
 <html lang="it">
 <head>
 <meta charset="utf-8">
@@ -16,28 +39,55 @@
   <div class="container">
     <span class="eyebrow" style="color:var(--secondary)">Area riservata</span>
     <h1>Area Soci</h1>
-    <p>Accedi per consultare i verbali riservati, gestire i tuoi dati e rinnovare la tessera associativa.</p>
+    <p>Uno spazio riservato per consultare i verbali, gestire i tuoi dati e rinnovare la tessera associativa.</p>
   </div>
 </section>
 
 <section class="section">
-  <div class="container" style="max-width:460px">
-    <form class="contact" onsubmit="event.preventDefault();alert('Accesso in arrivo: l\'area riservata sarà attivata a breve.');">
-      <h2 style="margin-bottom:6px">Accedi</h2>
-      <input type="email" placeholder="Email" required>
-      <input type="password" placeholder="Password" required>
-      <button class="btn btn--primary" type="submit">Entra</button>
-      <small style="color:var(--muted-fg)">Non hai le credenziali? <a href="contatti.html">Contatta l'Associazione</a>.</small>
-    </form>
+  <div class="container" style="max-width:960px">
 
-    <div class="notice mt-m">
-      <strong>Area in allestimento.</strong> L'accesso riservato ai soci sarà attivato a breve. Una volta effettuato l'accesso potrai vedere il tuo stato socio (numero tessera, scadenza), scaricare i <strong>verbali assembleari riservati</strong> e — prossimamente — <strong>rinnovare l'iscrizione</strong> online.
+    <div class="notice" role="status">
+      <strong>Area riservata in fase di attivazione</strong> — l'accesso sarà abilitato prossimamente, dopo l'approvazione del Direttivo.
+    </div>
+
+    <div class="info-grid mt-m" style="align-items:start">
+
+      <form class="contact" novalidate>
+        <h2 style="margin-bottom:6px">Accedi</h2>
+        <label for="login-email" style="font-weight:600">Email</label>
+        <input id="login-email" type="email" placeholder="La tua email" autocomplete="username" disabled>
+        <label for="login-password" style="font-weight:600">Password</label>
+        <input id="login-password" type="password" placeholder="La tua password" autocomplete="current-password" disabled>
+        <button class="btn btn--primary" type="button" id="login-btn" aria-describedby="login-msg">Entra</button>
+        <p class="form-msg" id="login-msg" role="status" aria-live="polite">Area non ancora attiva: l'accesso sarà abilitato dopo l'approvazione del Direttivo.</p>
+        <small style="color:var(--muted-fg)">Non hai le credenziali? <a href="contatti.html">Contatta l'Associazione</a>: te le forniremo all'attivazione dell'area.</small>
+      </form>
+
+      <div>
+        <h2>Cosa potrai fare</h2>
+        <p class="mt-s" style="color:var(--muted-fg)">Una volta attiva, l'Area Soci ti permetterà di:</p>
+        <ul class="info-list mt-m">
+          <li><span class="k">Verbali</span><span>Consultare e scaricare i <strong>verbali assembleari riservati</strong> ai soci.</span></li>
+          <li><span class="k">I tuoi dati</span><span>Vedere e chiedere l'aggiornamento della tua <strong>anagrafica</strong> (email, telefono, residenza).</span></li>
+          <li><span class="k">Tessera</span><span>Controllare lo stato della tua <strong>tessera associativa</strong> e, prossimamente, rinnovarla online.</span></li>
+        </ul>
+        <div class="mt-m">
+          <a class="btn btn--ghost" href="area-soci-dashboard.html">Anteprima dell'Area Soci →</a>
+          <p class="mt-s" style="color:var(--muted-fg);font-size:.95rem">L'anteprima mostra la dashboard con <strong>dati di esempio</strong>, per farti vedere come sarà.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- Predisposizione tecnica (Fase 2): autenticazione e dati soci via Supabase.
-     Verranno aggiunti qui il client Supabase e la dashboard socio. -->
 <script src="../js/layout.js"></script>
+<script>
+// Login volutamente NON funzionante: nessuna chiamata di autenticazione.
+// Il pulsante mostra solo l'avviso "Area non ancora attiva".
+document.getElementById('login-btn').addEventListener('click', function () {
+  document.getElementById('login-msg').classList.add('show');
+});
+</script>
 </body>
 </html>

@@ -163,6 +163,23 @@ form.contact input:focus, form.contact textarea:focus { outline: 2px solid var(-
 .notice { background: oklch(96% .03 27); border:1px solid oklch(80% .08 27); border-left: 6px solid var(--accent-red);
   border-radius: var(--radius-sm); padding: 18px 20px; color: oklch(35% .10 27); }
 
+/* ---------- Area Soci (anteprima, login disattivato) ---------- */
+.notice--info { background: oklch(96% .02 240); border-color: oklch(85% .05 240); border-left-color: var(--secondary); color: var(--primary); }
+.badge-status { display: inline-flex; align-items: center; gap: 6px; padding: 4px 14px; border-radius: 999px; font-weight: 700; font-size: .88rem; white-space: nowrap; }
+.badge-status--ok { background: oklch(94% .05 150); color: oklch(33% .09 150); }
+.badge-status--warn { background: oklch(95% .06 80); color: oklch(38% .09 60); }
+.btn[disabled], .btn[aria-disabled="true"] { opacity: .55; cursor: not-allowed; }
+.btn[disabled]:hover { background: var(--primary); }
+form.contact input[disabled] { background: var(--muted); color: var(--muted-fg); cursor: not-allowed; }
+.form-msg { display: none; background: oklch(96% .03 27); border: 1px solid oklch(80% .08 27); border-radius: var(--radius-sm); padding: 12px 14px; color: oklch(35% .10 27); font-weight: 600; }
+.form-msg.show { display: block; }
+.dash-list { list-style: none; display: grid; gap: 12px; }
+.dash-list li { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; background: var(--surface); }
+.dash-kv { list-style: none; display: grid; gap: 10px; }
+.dash-kv li { display: flex; gap: 12px; flex-wrap: wrap; }
+.dash-kv .k { color: var(--muted-fg); font-weight: 600; min-width: 130px; }
+.dash-kv .v { font-weight: 600; color: var(--text); }
+
 /* ---------- Page header ---------- */
 .page-head { background: linear-gradient(160deg, var(--primary), oklch(40% .12 250)); color:#fff; padding: 54px 0; }
 .page-head h1 { color:#fff; } .page-head p { color: oklch(92% .02 240); max-width: 60ch; margin-top: 8px; }

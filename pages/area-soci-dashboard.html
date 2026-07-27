@@ -1,0 +1,103 @@
+<!doctype html>
+<!-- ANTEPRIMA Area Soci: pagina dimostrativa statica con SOLI dati di
+     esempio fittizi. Nessun collegamento a database o autenticazione.
+     Flusso e passi futuri: vedi commento in area-soci.html e
+     docs/area-soci-flow.md -->
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anteprima Area Soci — AID Mariano Comense</title>
+<meta name="description" content="Anteprima dimostrativa della dashboard dell'Area Soci con dati di esempio. L'Area Soci non è ancora attiva.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="area">
+
+<section class="page-head">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+    <div>
+      <span class="eyebrow" style="color:var(--secondary)">Anteprima dimostrativa</span>
+      <h1>La tua Area Soci</h1>
+      <p>Benvenuto, <strong>Mario Rossi</strong> (socio di esempio)</p>
+    </div>
+    <a class="btn btn--light" href="area-soci.html" title="Esci (dimostrativo): torna alla pagina di accesso">Esci</a>
+  </div>
+</section>
+
+<section class="section" style="padding-top:40px">
+  <div class="container" style="max-width:960px">
+
+    <div class="notice" role="status">
+      <strong>Anteprima — dati di esempio.</strong> L'Area Soci non è ancora attiva: tutto ciò che vedi in questa pagina è fittizio e i pulsanti sono dimostrativi.
+    </div>
+
+    <div class="grid grid--2 mt-m">
+
+      <!-- Card tessera -->
+      <div class="card">
+        <div class="card-body">
+          <span class="eyebrow">La tua tessera</span>
+          <h3>Tessera n. AID-0000</h3>
+          <ul class="dash-kv">
+            <li><span class="k">Anno di validità</span><span class="v">2026</span></li>
+            <li><span class="k">Scadenza</span><span class="v">31/12/2026</span></li>
+            <li><span class="k">Stato</span><span class="badge-status badge-status--ok">✓ In regola</span></li>
+          </ul>
+          <p style="color:var(--muted-fg);font-size:.95rem">Quando la tessera sarà da rinnovare, lo stato diventerà <span class="badge-status badge-status--warn">Da rinnovare</span></p>
+        </div>
+      </div>
+
+      <!-- Card dati -->
+      <div class="card">
+        <div class="card-body">
+          <span class="eyebrow">I tuoi dati</span>
+          <h3>Mario Rossi</h3>
+          <ul class="dash-kv">
+            <li><span class="k">Email</span><span class="v">mario.rossi@esempio.it</span></li>
+            <li><span class="k">Telefono</span><span class="v">333 000 0000</span></li>
+            <li><span class="k">Residenza</span><span class="v">Via Roma 1, Mariano Comense (CO)</span></li>
+          </ul>
+          <div class="card-foot">
+            <button class="btn btn--ghost" type="button" disabled title="Funzione dimostrativa: sarà attivata con l'Area Soci">Aggiorna i tuoi dati</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card rinnovo -->
+      <div class="card">
+        <div class="card-body">
+          <span class="eyebrow">Rinnovo tessera</span>
+          <h3>Rinnova per il 2027</h3>
+          <p style="color:var(--muted-fg)">Prossimamente potrai rinnovare la tessera direttamente da qui, con pagamento online sicuro.</p>
+          <div class="card-foot">
+            <button class="btn btn--primary" type="button" disabled title="Funzione dimostrativa: il rinnovo online sarà attivato in seguito">Rinnova la tessera</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card verbali -->
+      <div class="card">
+        <div class="card-body">
+          <span class="eyebrow">Verbali riservati</span>
+          <h3>Documenti per i soci</h3>
+          <ul class="dash-list">
+            <li><span>Verbale Assemblea ordinaria — marzo 2026</span><button class="btn btn--ghost" type="button" disabled title="Download dimostrativo">Scarica</button></li>
+            <li><span>Verbale Consiglio Direttivo — gennaio 2026</span><button class="btn btn--ghost" type="button" disabled title="Download dimostrativo">Scarica</button></li>
+            <li><span>Verbale Assemblea ordinaria — marzo 2025</span><button class="btn btn--ghost" type="button" disabled title="Download dimostrativo">Scarica</button></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="mt-m" style="color:var(--muted-fg)">Hai suggerimenti su questa anteprima? <a href="contatti.html">Scrivici</a>: l'Area Soci sarà attivata dopo l'approvazione del Direttivo.</p>
+  </div>
+</section>
+
+<script src="../js/layout.js"></script>
+</body>
+</html>
