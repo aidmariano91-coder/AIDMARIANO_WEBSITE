@@ -4,11 +4,34 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Le ricette di una volta — AID Mariano Comense</title>
-<meta name="description" content="Raccolta di ricette tradizionali proposte dai soci dell'Associazione Intercomunale Diabetici OdV di Mariano Comense.">
+<meta name="description" content="Ricettario tradizionale dei soci dell'Associazione Intercomunale Diabetici OdV di Mariano Comense: cerca per ingrediente o tipologia.">
 <link rel="icon" href="../assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
+<style>
+  .search-wrap{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:18px}
+  .search-wrap input{flex:1;min-width:240px;font:inherit;padding:13px 16px;border:1px solid var(--border);
+    border-radius:10px;background:#fff}
+  .search-wrap input:focus{outline:2px solid var(--ring);border-color:var(--ring)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chip{border:1px solid var(--border);background:#fff;color:var(--primary);font-weight:600;
+    padding:8px 16px;border-radius:999px;cursor:pointer;font:inherit;transition:.15s}
+  .chip:hover{border-color:var(--secondary)}
+  .chip.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .cat-title{margin:26px 0 10px;color:var(--secondary);font-family:var(--font-head);font-weight:700;
+    text-transform:uppercase;letter-spacing:1px;font-size:.9rem;border-bottom:1px solid var(--border);padding-bottom:6px}
+  .rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  @media(max-width:900px){.rec-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.rec-grid{grid-template-columns:1fr}}
+  .rec{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--border);
+    border-radius:10px;background:#fff;color:var(--primary);font-weight:600;text-decoration:none;transition:.15s}
+  .rec:hover{border-color:var(--secondary);background:var(--muted);transform:translateY(-1px)}
+  .rec .num{flex:none;font-size:.72rem;font-weight:700;color:#fff;background:var(--secondary);
+    width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+  .empty{color:var(--muted-fg);padding:20px 0}
+  .count{color:var(--muted-fg);font-weight:600;margin-top:10px}
+</style>
 </head>
 <body data-page="ricette">
 
@@ -16,7 +39,7 @@
   <div class="container">
     <span class="eyebrow" style="color:var(--secondary)">Dai nostri soci</span>
     <h1>Le ricette di una volta</h1>
-    <p>Una raccolta di ricette tradizionali proposte dai nostri soci, per condivisione e memoria.</p>
+    <p>Il ricettario tradizionale dei nostri soci. Cerca per ingrediente (es. "pollo", "carciofi") o per tipologia (es. "torta", "pasta"), oppure sfoglia per portata.</p>
   </div>
 </section>
 
@@ -26,37 +49,129 @@
       <strong>Avviso importante.</strong> Le ricette raccolte in questa sezione sono "ricette di una volta", proposte dai nostri soci per condivisione e memoria. <strong>Non sono controllate né validate da un'équipe medica o da nutrizionisti</strong> e non costituiscono indicazioni dietetiche per la gestione o la cura del diabete. Prima di adottarle, consultare il proprio medico o dietologo.
     </div>
 
-    <div class="mt-m">
-      <span class="eyebrow">Raccolta</span>
-      <h2>Sfoglia il ricettario</h2>
-      <p class="lead" style="color:var(--muted-fg)">Il ricettario completo (oltre 60 ricette) è consultabile e scaricabile da tutti. Stiamo trascrivendo progressivamente le ricette in formato testo per renderle più leggibili e ricercabili.</p>
-      <p class="mt-s"><a class="btn btn--primary" href="https://drive.google.com/drive/folders/11FIec66rE7mS2uSvcJ9WFASJwt9j5KB4" target="_blank" rel="noopener">Apri il ricettario completo →</a></p>
+    <div class="search-wrap">
+      <input id="q" type="search" placeholder="🔎 Cerca una ricetta: ingrediente o tipologia (es. torta, pasta, pollo, pesce)…" autocomplete="off">
     </div>
+    <div class="chips" id="chips">
+      <button class="chip active" data-cat="all">Tutte</button>
+      <button class="chip" data-cat="antipasto">Antipasti</button>
+      <button class="chip" data-cat="primo">Primi</button>
+      <button class="chip" data-cat="secondo">Secondi</button>
+      <button class="chip" data-cat="contorno">Contorni</button>
+      <button class="chip" data-cat="dolce">Dolci</button>
+    </div>
+    <p class="count" id="count"></p>
 
-    <div class="mt-m">
-      <h3>Alcune ricette della raccolta</h3>
-      <ul class="council" style="justify-content:flex-start;margin-top:14px">
-        <li>Broccoletti in salsa delicata</li>
-        <li>Linguine con tonno, ceci, pinoli e limone</li>
-        <li>Risotto alla barbabietola rossa e robiola</li>
-        <li>Agnello alle erbe aromatiche</li>
-        <li>Filetto di manzo alle olive</li>
-        <li>Arrosto di maiale alle mele</li>
-        <li>Bocconcini di tacchino al curry</li>
-        <li>Seppie con piselli</li>
-        <li>Zuppa di verza e patate</li>
-        <li>Insalata di ceci</li>
-        <li>Riso pilaf all'uvetta</li>
-        <li>Spaghetti alla ricotta</li>
-        <li>Carciofi in umido</li>
-        <li>Salmone alla menta</li>
-        <li>Finocchi alle noci</li>
-        <li>Flan di peperoni</li>
-      </ul>
-      <p class="mt-s" style="color:var(--muted-fg)"><em>Elenco parziale, in corso di trascrizione dall'originale.</em></p>
-    </div>
+    <div id="results" class="mt-s"></div>
+
+    <p class="mt-m" style="color:var(--muted-fg)"><em>I titoli sono tratti dal ricettario manoscritto e in corso di verifica. Puoi anche <a href="https://drive.google.com/drive/folders/11FIec66rE7mS2uSvcJ9WFASJwt9j5KB4" target="_blank" rel="noopener">sfogliare il ricettario completo</a>.</em></p>
   </div>
 </section>
+
+<script>
+// Ogni ricetta: n (numero), t (titolo), c (categoria), k (parole chiave), id (file Drive)
+const RICETTE = [
+  {n:1,t:"Insalata di avena, salmone e ravanelli",c:"antipasto",k:"insalata avena salmone ravanelli pesce",id:"1T2YF2DRfzPKkokeiVXwZjX5mrKEPTjeW"},
+  {n:2,t:"Broccoletti in salsa delicata",c:"contorno",k:"broccoli broccoletti verdura salsa",id:"13kdwrytPP1SeDQd_yRCuzL8j4eXHmp8K"},
+  {n:3,t:"Ricetta n. 3 (titolo da verificare)",c:"altro",k:"",id:"1MfIaPyebpB9m5bicQEHT5qb-O7U_dQGQ"},
+  {n:4,t:"Verdure ripiene alla maggiorana",c:"contorno",k:"verdure ripiene maggiorana",id:"1tJunpZ2nvc-YCCw-4Fk2_3wcAsUNRzKC"},
+  {n:5,t:"Ricetta n. 5 (titolo da verificare)",c:"altro",k:"",id:"1KuPcQYFH9lLynqMJI0p4mY-wPonOrOyJ"},
+  {n:6,t:"Gnocchi al ragù",c:"primo",k:"gnocchi ragu pasta patate",id:"1HVSIs5pLoxJPjiNgkLjpSpG--R1RcPvV"},
+  {n:7,t:"Linguine con tonno, ceci, pinoli e limone",c:"primo",k:"linguine pasta tonno ceci pinoli limone pesce",id:"1oH2IiGCY0VGv8Wn51VA_bobYi1gVaPMe"},
+  {n:8,t:"Crespelle",c:"primo",k:"crespelle crepes",id:"1iJKgtJ_M0PNVc7HbN3tFQzbp0omeUTDt"},
+  {n:9,t:"Risotto alla barbabietola rossa e robiola",c:"primo",k:"risotto riso barbabietola robiola formaggio",id:"1bWfIAOKDF190AcIQUMekq6wDiPvxMMrS"},
+  {n:10,t:"Trofie con crema di zucchine e pancetta",c:"primo",k:"trofie pasta zucchine pancetta",id:"1oBKhtpEShFYRWZI7GhaLaFwAltqjMl_Q"},
+  {n:11,t:"Agnello alle erbe aromatiche",c:"secondo",k:"agnello carne erbe aromatiche",id:"19jMSSTIuMwFULDuAJ8A4QWwQCfeXYZf3"},
+  {n:12,t:"Pasta alle acciughe",c:"primo",k:"pasta acciughe pesce",id:"1we8-ja6P7-c7g0BsiK9kW-3j6ukN7Mol"},
+  {n:13,t:"Lombata di maiale alle mandorle",c:"secondo",k:"lombata maiale carne mandorle",id:"1B4i5WMJC1AfXEdeWyfJFxLd4Cws3_Sbs"},
+  {n:14,t:"Filetto di manzo alle olive",c:"secondo",k:"filetto manzo carne olive",id:"1gz24yFbJXjHjygK56TCkNiVKfj1cd9fr"},
+  {n:15,t:"Arrosto di maiale alle mele",c:"secondo",k:"arrosto maiale carne mele",id:"1tbPb0vdtBmWlkXgpC7lXp4riXMgDnpGm"},
+  {n:16,t:"Bocconcini di tacchino al curry",c:"secondo",k:"bocconcini tacchino carne curry",id:"1-BjuWSRfdX9M_XVu0U4Old3r8xhGvWhi"},
+  {n:17,t:"Involtini di vitellone",c:"secondo",k:"involtini vitellone vitello carne",id:"1vds_T1NuHeNlIhNOH_iloWSHSnyqEm3J"},
+  {n:18,t:"Faraona arrosto con arance e ribes",c:"secondo",k:"faraona carne arance ribes arrosto",id:"1DKNq3rP71j9-F1k5x1KoXyQPDngn7FGn"},
+  {n:19,t:"Vitello all'uccelletto con carciofi",c:"secondo",k:"vitello carne carciofi",id:"1hhgI9jbOzirqS-lNBplfGc28qgmmJBte"},
+  {n:20,t:"Cosce di pollo agli agrumi",c:"secondo",k:"pollo carne agrumi arancia limone",id:"1Nnijcts-K4lAgIA6WfazGGMLgtkx7GjM"},
+  {n:21,t:"Orata al forno",c:"secondo",k:"orata pesce forno",id:"12egCImLOrW7afxG78wouaPhGTVFokeYf"},
+  {n:22,t:"Seppie con piselli",c:"secondo",k:"seppie pesce piselli",id:"1sFmeLH_zhaWQokSrthaHh5rlMyS-cbRG"},
+  {n:23,t:"Bollito con peperoni",c:"secondo",k:"bollito carne peperoni",id:"1ces9GVC2T7voVdAiTSI0GNyOAu3A2dir"},
+  {n:24,t:"Trote farcite al prosciutto",c:"secondo",k:"trote trota pesce prosciutto",id:"1JvLDWYD5iLmkLfzlsSFo-jC6obug8OwI"},
+  {n:25,t:"Maccheroncini alle cipolle",c:"primo",k:"maccheroncini maccheroni pasta cipolle",id:"1_Vt2_lO86qaCCuyFFn8tx0KmNsHmXRtf"},
+  {n:26,t:"Filetti di sogliola ai funghi",c:"secondo",k:"sogliola pesce funghi filetti",id:"1x_qTPXR38NxlPvOdQr2WSIHOzurQM3V8"},
+  {n:27,t:"Petto di pollo alle olive",c:"secondo",k:"pollo carne olive petto",id:"1LE5AiOtrOUQF_H_qVndaDd23ak5XWha6"},
+  {n:28,t:"Maccheroni alla crema di gorgonzola",c:"primo",k:"maccheroni pasta gorgonzola formaggio crema",id:"1_CPd8QC0lkxtnavXFR_AIhZ7JOMhhf9H"},
+  {n:29,t:"Minestra di farro",c:"primo",k:"minestra farro zuppa",id:"1MVIEHGDxisJBS0pHS5sIf-sGhs73izf0"},
+  {n:30,t:"Maiale al vin santo",c:"secondo",k:"maiale carne vino vin santo",id:"1t0rvmo5XDFAIbVrzICjtX7NGBkWpmg7v"},
+  {n:31,t:"Zuppa di verza e patate",c:"primo",k:"zuppa verza patate minestra",id:"1340Z7WKf8s9k-0M0WQqpe_Nl_1tb3cdb"},
+  {n:32,t:"Semolino al formaggio",c:"primo",k:"semolino formaggio",id:"1SgML2Oo3BuTqKMRYmR4VyzzdlbTMwVkP"},
+  {n:33,t:"Agnello del papa",c:"secondo",k:"agnello carne",id:"1qzgsq4WgBWLFnBK1_p_bmvOuZiarA9OE"},
+  {n:34,t:"Insalata di ceci",c:"antipasto",k:"insalata ceci legumi",id:"1gPfVFrm8VQHv6GuHXiN8hx30NSrDsAbj"},
+  {n:35,t:"Torta di formaggio e verdure",c:"antipasto",k:"torta salata formaggio verdure",id:"1bGZw7mDHQ2W1xqBlV2jD5HkuZIZcN_gu"},
+  {n:36,t:"Agnello stufato al limone",c:"secondo",k:"agnello carne limone stufato",id:"1Cr_0PYasiN8JO2u82ovnXr_r8KZGm9N4"},
+  {n:37,t:"Riso pilaf all'uvetta",c:"primo",k:"riso pilaf uvetta",id:"1q-tb8K6s8pVR3L4eXPVB1jyqUvzZ2UC8"},
+  {n:38,t:"Trance di palombo alle olive",c:"secondo",k:"palombo pesce olive",id:"1O37T-vSo1N6rJnTaCm3uDf_Hoz2kl_1x"},
+  {n:39,t:"Porri al prosciutto",c:"antipasto",k:"porri prosciutto verdura",id:"1GQbx8OBU4-XQbAukLMVQEdxdUYNCjR7y"},
+  {n:40,t:"Spaghetti alla ricotta",c:"primo",k:"spaghetti pasta ricotta formaggio",id:"1GcqwKOp1Srywj-9aPIGWx6bc4phTv6cK"},
+  {n:41,t:"Tortino di patate",c:"contorno",k:"tortino patate",id:"1GPVJa3Jd2oa5xEqbW4zTSFWccvWBuWWI"},
+  {n:42,t:"Gorgonzola al limone",c:"antipasto",k:"gorgonzola formaggio limone",id:"1UE_42LbPGcyzSDHakQYgZOR3b-YbodtZ"},
+  {n:43,t:"Carciofi in umido",c:"contorno",k:"carciofi verdura umido",id:"1JI_tgJsjgtmYL-loSw8yGmsTO1e5fvvM"},
+  {n:44,t:"Polenta alla maremmana",c:"secondo",k:"polenta maremmana",id:"1igrcK_PYJrlC-UHMeMvPhIAx6-hzD9DO"},
+  {n:45,t:"Torta dolce di polenta con le noci",c:"dolce",k:"torta dolce polenta noci",id:"1_cIzYCbvIPejBhO69E3oA-dq1ia4-dZ4"},
+  {n:46,t:"Crema di asparagi",c:"antipasto",k:"crema asparagi verdura vellutata",id:"16GaZuiLWefRph-UBkst3Nikq7sgejRJz"},
+  {n:47,t:"Torta di cavolini di Bruxelles",c:"contorno",k:"torta salata cavolini bruxelles cavolo",id:"1kk684Oxfrj0ckaIjNKn22oUapP1LUNCq"},
+  {n:48,t:"Spezzatino di coniglio al limone",c:"secondo",k:"spezzatino coniglio carne limone",id:"1UuYBioJJesjhAqYVIlKrrbtsjzgfqWjw"},
+  {n:49,t:"Salmone alla menta",c:"secondo",k:"salmone pesce menta",id:"1N9w61xgjlnmvDU3rxDVnljWOwq6eECDn"},
+  {n:50,t:"Finocchi alle noci",c:"contorno",k:"finocchi noci verdura",id:"1bcF6_0zCi0JRCffvgrgBJB3u07bT1JVv"},
+  {n:51,t:"Fusilli agli ortaggi",c:"primo",k:"fusilli pasta ortaggi verdure",id:"1qkyVzxM8Y2N6qRhrXdJgKUgppRBP3DOf"},
+  {n:52,t:"Gnocchetti alle acciughe",c:"primo",k:"gnocchetti pasta acciughe pesce",id:"1f6RaZwPzqnasdHlurJaK205FeG0hQ-Jq"},
+  {n:53,t:"Alici all'aglio",c:"secondo",k:"alici pesce aglio",id:"1sVDQPX6OIPZuyRLuPoSgJoqUnkyepu5O"},
+  {n:54,t:"Passato di carote",c:"primo",k:"passato carote zuppa vellutata",id:"14Q_XKWMlG1m_5vCSMkxKeD4QScGsIptr"},
+  {n:55,t:"Minestra di riso e spinaci",c:"primo",k:"minestra riso spinaci zuppa",id:"1xNdES1KJ5BjspUBC7QTQan1-meRVLpPl"},
+  {n:56,t:"Maltagliati alla parmigiana",c:"primo",k:"maltagliati pasta parmigiano formaggio",id:"1igR0v4ajVfy3s2kRscoHRmNzFsja4CB5"},
+  {n:57,t:"Sogliole tonnate",c:"secondo",k:"sogliole sogliola pesce tonno",id:"1Hg8G53_qzIIwi6Tc14f7lDRQoK18U9dg"},
+  {n:58,t:"Striscioline di vitello alla paprika",c:"secondo",k:"vitello carne paprika striscioline",id:"1v4Vi_pPAn8ty_T0yK_uqFJomxviKvzOW"},
+  {n:59,t:"Quaglie alla senape",c:"secondo",k:"quaglie carne senape",id:"1RlTbyxw_uk25u8xtl_hUIR7BJJO-BYiY"},
+  {n:60,t:"Trevisana all'aglio",c:"contorno",k:"trevisana radicchio aglio verdura",id:"1saTLYSOTpCjNFVKj9wSYxc4TkQDS9W5E"},
+  {n:61,t:"Capretto al forno",c:"secondo",k:"capretto carne forno",id:"11jIhj8acw7CrZ73HUrrN2ji0X7qs5ALq"},
+  {n:62,t:"Tortino di carciofi e patate",c:"contorno",k:"tortino carciofi patate",id:"1R1q0uqcFgTIGBzhVvwtVkwkDOz0R2NDo"},
+  {n:63,t:"Torta di ortaggi",c:"antipasto",k:"torta salata ortaggi verdure",id:"163Fkvwr-KfzqV6HyJhrQdAA2L3HWvF2O"},
+  {n:64,t:"Flan di peperoni",c:"antipasto",k:"flan peperoni sformato",id:"1AQjaQkrGFRY6ZOBNqYFvrDxNjrFdIJ6s"},
+  {n:65,t:"Cipollata",c:"primo",k:"cipollata cipolle zuppa",id:"1Q1VH1J5x1zIWK2VavqS-xMzoCPVW86yj"},
+];
+
+const CATS = [["antipasto","Antipasti"],["primo","Primi"],["secondo","Secondi"],["contorno","Contorni"],["dolce","Dolci"],["altro","Altre ricette"]];
+const norm = s => (s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+let activeCat = "all";
+
+function render(){
+  const q = norm(document.getElementById("q").value.trim());
+  const box = document.getElementById("results");
+  let list = RICETTE.filter(r => {
+    const okCat = activeCat === "all" || r.c === activeCat;
+    const okQ = !q || norm(r.t).includes(q) || norm(r.k).includes(q) || norm(({antipasto:"antipasti",primo:"primi",secondo:"secondi",contorno:"contorni",dolce:"dolci"})[r.c]||"").includes(q);
+    return okCat && okQ;
+  });
+  document.getElementById("count").textContent = list.length + " ricett" + (list.length===1?"a":"e");
+  if(!list.length){ box.innerHTML = '<p class="empty">Nessuna ricetta trovata. Prova con un altro ingrediente o tipologia.</p>'; return; }
+  let html = "";
+  for(const [cat,label] of CATS){
+    const items = list.filter(r=>r.c===cat).sort((a,b)=>a.t.localeCompare(b.t,"it"));
+    if(!items.length) continue;
+    html += `<h3 class="cat-title">${label}</h3><div class="rec-grid">`;
+    for(const r of items){
+      html += `<a class="rec" href="https://drive.google.com/file/d/${r.id}/view" target="_blank" rel="noopener"><span class="num">${r.n}</span><span>${r.t}</span></a>`;
+    }
+    html += `</div>`;
+  }
+  box.innerHTML = html;
+}
+document.getElementById("q").addEventListener("input", render);
+document.getElementById("chips").addEventListener("click", e=>{
+  const b = e.target.closest(".chip"); if(!b) return;
+  document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
+  b.classList.add("active"); activeCat = b.dataset.cat; render();
+});
+render();
+</script>
 
 <script src="../js/layout.js"></script>
 </body>

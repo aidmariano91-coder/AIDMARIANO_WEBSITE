@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
+<style>
+  .ed-links{list-style:none;display:grid;gap:8px;margin-top:10px}
+  .ed-links a{display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--border);
+    border-radius:9px;background:#fff;color:var(--primary);font-weight:600;transition:.15s}
+  .ed-links a:hover{border-color:var(--secondary);background:var(--muted)}
+  .ed-links a::before{content:"PDF";font-size:.7rem;font-weight:700;color:#fff;background:var(--accent-red);
+    padding:2px 6px;border-radius:5px}
+</style>
 </head>
 <body data-page="giornalino">
 
@@ -20,42 +28,68 @@
   </div>
 </section>
 
+<!-- EDIZIONI COMPLETE -->
 <section class="section">
   <div class="container">
-    <span class="eyebrow">Archivio per anno</span>
+    <span class="eyebrow">Edizioni complete</span>
     <h2>Sfoglia le edizioni</h2>
-    <div class="grid grid--4 mt-m" id="anni">
-      <!-- generato sotto -->
+    <div class="grid grid--3 mt-m">
+      <a class="card" style="text-decoration:none" href="https://drive.google.com/file/d/1jAYaBUX6pkEn-HHW5adGzdymgzmRdaGY/view" target="_blank" rel="noopener">
+        <div class="card-body"><span class="date">Edizione 2026</span><h3>La Nostra Voce · 2026</h3><p style="color:var(--muted-fg)">Apri il PDF →</p></div></a>
+      <a class="card" style="text-decoration:none" href="https://drive.google.com/file/d/1OGPeTuhxctYyYA-eDKQmqT1Kd2cr_SKZ/view" target="_blank" rel="noopener">
+        <div class="card-body"><span class="date">Luglio 2023</span><h3>La Nostra Voce · 2023</h3><p style="color:var(--muted-fg)">Apri il PDF →</p></div></a>
+      <a class="card" style="text-decoration:none" href="https://drive.google.com/file/d/1LFjQgHa1QgTtsr3ptRrpA544Z9DIycEL/view" target="_blank" rel="noopener">
+        <div class="card-body"><span class="date">Luglio 2020</span><h3>La Nostra Voce · 2020</h3><p style="color:var(--muted-fg)">Apri il PDF →</p></div></a>
+      <a class="card" style="text-decoration:none" href="https://drive.google.com/file/d/1h-8rBQt0b7vymODUpzdeyOrkU4Xoi-lm/view" target="_blank" rel="noopener">
+        <div class="card-body"><span class="date">Febbraio 2019</span><h3>La Nostra Voce · 2019</h3><p style="color:var(--muted-fg)">Apri il PDF →</p></div></a>
+      <a class="card" style="text-decoration:none" href="https://drive.google.com/file/d/1EIIDo7QJF1sxDQrOL6-i9YQqkj4jCH76/view" target="_blank" rel="noopener">
+        <div class="card-body"><span class="date">Marzo 2018</span><h3>La Nostra Voce · 2018</h3><p style="color:var(--muted-fg)">Apri il PDF →</p></div></a>
+      <a class="card" style="text-decoration:none" href="https://drive.google.com/file/d/1tD4qIJyshR09c78Rblv8MobcoK-JP0BT/view" target="_blank" rel="noopener">
+        <div class="card-body"><span class="date">Marzo 2017</span><h3>La Nostra Voce · 2017</h3><p style="color:var(--muted-fg)">Apri il PDF →</p></div></a>
+      <a class="card" style="text-decoration:none" href="https://drive.google.com/file/d/1ZxtfMjpAqzLf6l7oJx0xJsX_R92V9qMw/view" target="_blank" rel="noopener">
+        <div class="card-body"><span class="date">Aprile 2011 · Le origini</span><h3>Il Giornalino · 2011</h3><p style="color:var(--muted-fg)">Apri il PDF →</p></div></a>
     </div>
-    <p class="mt-m"><a class="btn btn--primary" href="https://drive.google.com/drive/folders/1gdTDJ-NUopGFnGvHpBxfUU4pQkbfycB4" target="_blank" rel="noopener">Apri l'archivio completo →</a></p>
   </div>
 </section>
 
-<script>
-  const anni = [
-    ['2026','1saY9Ue6qU1CT1lHfTvAQTlqK4hnxh3_n','Ultima edizione'],
-    ['2025','1gpVoDF3pFAcRl226bhBhRY1a8zceZU9s',''],
-    ['2024','1JSHIezwxzPD5ECXVJ6m3c8m0U4CTrFQK',''],
-    ['2023','1pWMPGOh9NEJFdNIogfSfH8Wn2AB_h5Jk',''],
-    ['2022','1gNF5VBbe1l6SIDD5WcLuQgicv9ipUekp',''],
-    ['2021','1y3w5_Dk38MRNhggDsYprJ3XhnwadIVP9',''],
-    ['2020','1eKKYcePlcSwt6F-Q5Ei0jR-y6rDqTsba',''],
-    ['2019','1aqwmedh4jsU0QIFufWsQHwOibz82zew4',''],
-    ['2018','1BPGcyLrK-KfID94-Q1Gelb0ZvkQxFQLE',''],
-    ['2017','1qjPFJjwehaWt-Odxw4xprY5rZ5Z7Z_w6',''],
-    ['2011','1WSh2criCcAwHzXkuYNzQmsdQNBUWQybY','Le origini'],
-  ];
-  document.getElementById('anni').innerHTML = anni.map(([a,id,tag]) =>
-    `<a class="card" style="text-decoration:none" href="https://drive.google.com/drive/folders/${id}" target="_blank" rel="noopener">
-       <div class="card-body">
-         ${tag?`<span class="date">${tag}</span>`:'<span class="date">Edizione</span>'}
-         <h3>La Nostra Voce · ${a}</h3>
-         <p style="color:var(--muted-fg)">Apri e scarica il PDF →</p>
-       </div>
-     </a>`).join('');
-</script>
-
+<!-- EDIZIONI PER SEZIONI -->
 <section class="section section--muted">
+  <div class="container">
+    <span class="eyebrow">Altre edizioni</span>
+    <h2>Edizioni per contributi</h2>
+    <p class="lead" style="color:var(--muted-fg)">Per queste annate i contenuti sono disponibili come singoli contributi. Ogni link apre direttamente il PDF.</p>
+    <div class="grid grid--3 mt-m">
+      <div class="card"><div class="card-body">
+        <span class="date">2025</span><h3>La Nostra Voce · 2025</h3>
+        <ul class="ed-links">
+          <li><a href="https://drive.google.com/file/d/1itoYbeeLUjoV9rlbzmjRff98tc3rL59a/view" target="_blank" rel="noopener">Editoriale del Presidente</a></li>
+          <li><a href="https://drive.google.com/file/d/1rvvS7PxcvcHYF8byewcUam1ZDDbmaSH9/view" target="_blank" rel="noopener">Relazione del Presidente e del Tesoriere</a></li>
+          <li><a href="https://drive.google.com/file/d/1VcqU54pyOoMwBCoI-xc7FpMHG2OyhgTU/view" target="_blank" rel="noopener">Consigli utili per vivere bene</a></li>
+          <li><a href="https://drive.google.com/file/d/16ClAyt9Z-kLQDMULRm8Ws_L5P35Lgoqv/view" target="_blank" rel="noopener">Le Ricette di Elly</a></li>
+          <li><a href="https://drive.google.com/file/d/1r2fb5WGwG-5nlnHBtUKVTZgc28njU1Z4/view" target="_blank" rel="noopener">Il Cruciverba</a></li>
+        </ul>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <span class="date">2024</span><h3>La Nostra Voce · 2024</h3>
+        <ul class="ed-links">
+          <li><a href="https://drive.google.com/file/d/1EyNPEsqX0vR5I5O1mPxCOug7Pk2fvulA/view" target="_blank" rel="noopener">Editoriale del Presidente</a></li>
+          <li><a href="https://drive.google.com/file/d/14Rfbh_u6D_y2tRfebMJj0iNgeOXyFJfJ/view" target="_blank" rel="noopener">Relazione del Presidente e del Tesoriere</a></li>
+          <li><a href="https://drive.google.com/file/d/1csZ--MxRUJa6lPBzxCdlFZcWSOEpL4lK/view" target="_blank" rel="noopener">Le Ricette di Elly</a></li>
+        </ul>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <span class="date">2022</span><h3>La Nostra Voce · 2022</h3>
+        <ul class="ed-links">
+          <li><a href="https://drive.google.com/file/d/1kYKM1bTTiaqVyZqSWSOpTyuF6iaMBZxe/view" target="_blank" rel="noopener">Editoriale del Presidente</a></li>
+          <li><a href="https://drive.google.com/file/d/1DqqkImR9-knwUT9hSWCnHCJUhVn6q1Yp/view" target="_blank" rel="noopener">Riflessioni sulla vita dell'Associazione</a></li>
+        </ul>
+      </div></div>
+    </div>
+    <p class="mt-m" style="color:var(--muted-fg)"><em>L'edizione 2021 è in fase di digitalizzazione.</em></p>
+  </div>
+</section>
+
+<section class="section">
   <div class="container prose">
     <span class="eyebrow">Vuoi collaborare?</span>
     <h2>Racconta la tua storia</h2>
