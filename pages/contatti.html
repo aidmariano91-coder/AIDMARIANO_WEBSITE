@@ -37,21 +37,61 @@
     <div id="form">
       <span class="eyebrow">Scrivici</span>
       <h2>Modulo di contatto</h2>
-      <!-- Netlify Forms: funziona automaticamente una volta pubblicato su Netlify -->
-      <form class="contact mt-m" name="contatti" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contatti">
-        <p style="display:none"><label>Non compilare: <input name="bot-field"></label></p>
+      <!-- Invio via Web3Forms (funziona su hosting statico come Cloudflare Pages) -->
+      <form id="contact-form" class="contact mt-m">
+        <!-- Access key pubblica di Web3Forms: recapita i messaggi a aidmariano91@gmail.com -->
+        <input type="hidden" name="access_key" value="bb88d367-2a07-47ae-a57a-9501777291f1">
+        <input type="hidden" name="subject" value="Nuovo messaggio dal sito AID Mariano">
+        <input type="hidden" name="from_name" value="Sito AID Mariano">
+        <!-- Anti-spam (honeypot): resta nascosto, non compilare -->
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <input type="text" name="nome" placeholder="Nome e cognome" required>
         <input type="email" name="email" placeholder="La tua email" required>
         <input type="text" name="oggetto" placeholder="Oggetto">
         <textarea name="messaggio" rows="5" placeholder="Il tuo messaggio" required></textarea>
         <button class="btn btn--primary" type="submit">Invia messaggio</button>
         <small style="color:var(--muted-fg)">Inviando accetti che i tuoi dati siano usati solo per rispondere alla tua richiesta.</small>
+        <p id="form-status" role="status" aria-live="polite" style="margin-top:.6rem;font-weight:600"></p>
       </form>
     </div>
   </div>
 </section>
 
 <script src="../js/layout.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  var status = document.getElementById('form-status');
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    status.style.color = 'var(--muted-fg)';
+    status.textContent = 'Invio in corso…';
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      var json = await res.json();
+      if (res.ok && json.success) {
+        form.reset();
+        status.style.color = 'var(--primary)';
+        status.textContent = '✓ Messaggio inviato. Ti risponderemo al più presto, grazie!';
+      } else {
+        status.style.color = 'var(--accent-red)';
+        status.textContent = 'Problema nell’invio. Riprova o scrivici a aidmariano91@gmail.com.';
+      }
+    } catch (err) {
+      status.style.color = 'var(--accent-red)';
+      status.textContent = 'Connessione non riuscita. Riprova o scrivici a aidmariano91@gmail.com.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
 </body>
 </html>
